@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+.background-gif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+.background-gif iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeIn 2s ease-in-out;
+}
+.iframe-wrapper {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56%;
+    position: relative;
+}
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.main-overlay {
+    background: rgba(255, 255, 255, 0.85);
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px;
+    animation: slideIn 1s ease-out;
+    position: relative;
+}
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+header h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    position: relative;
+    transition: color 0.3s;
+}
+header h1::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #e74c3c;
+    display: block;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+    transition: background 0.3s;
+}
+header h1:hover {
+    color: #e74c3c;
+}
+header h1:hover::after {
+    background: #2c3e50;
+}
+.description-section .content-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 35px;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    animation: fadeInUp 1s ease-out;
+}
+.description-section h2 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    position: relative;
+}
+.description-section h2::after {
+    content: '';
+    width: 50px;
+    height: 2px;
+    background: #e74c3c;
+    display: block;
+    margin: 5px 0 15px 0;
+    border-radius: 1px;
+}
+.description-section p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.description-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.download-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+}
+.dashboard-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+.dashboard-item {
+    position: relative;
+    width: 90%;
+    max-width: 1000px; 
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.dashboard-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.dashboard-item img:first-child {
+    width: 100%;
+    height: auto; 
+    display: block;
+    border-bottom: 1px solid #ddd;
+    transition: opacity 0.3s;
+}
+.dashboard-item img:first-child:hover {
+    opacity: 0.9;
+}
+.info-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.info-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+.popup-window {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    animation: fadeIn 0.5s ease;
+    overflow: auto; 
+}
+.popup-content {
+    background: #fff;
+    padding: 25px 35px;
+    border-radius: 10px;
+    max-width: 600px; 
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.5s ease;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.popup-content h2 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.5em;
+}
+.popup-content hr {
+    border: none;
+    height: 2px;
+    background-color: #e74c3c;
+    margin-bottom: 15px;
+}
+.popup-content ul, .popup-content p {
+    color: #555;
+    line-height: 1.6;
+}
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+.close-btn:hover {
+    color: #2c3e50;
+}
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #777;
+    font-size: 1em;
+    border-top: 1px solid #ddd;
+    animation: fadeInUp 1s ease-out;
+}
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    animation: fadeIn 0.5s ease;
+}
+#backToTop:hover {
+    background-color: #c0392b;
+    transform: translateY(-5px);
+}
+#backToTop i {
+    font-size: 1.2em;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@media (max-width: 768px) {
+    .dashboard-gallery {
+        gap: 30px;
+    }
+    .dashboard-item {
+        width: 95%;
+    }
+    header h1 {
+        font-size: 2.5em;
+    }
+    .description-section .content-box {
+        padding: 15px 20px;
+    }
+    .popup-content {
+        padding: 20px 25px;
+    }
+}
